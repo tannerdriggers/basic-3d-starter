@@ -12,6 +12,12 @@ namespace Basic3DStarter
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        // The triangle to draw
+        Triangle triangle;
+
+        // The quad to draw
+        Quad quad;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -41,6 +47,11 @@ namespace Basic3DStarter
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            // Create the triangle
+            triangle = new Triangle(this);
+
+            // Create the quad
+            quad = new Quad(this);
         }
 
         /// <summary>
@@ -63,6 +74,8 @@ namespace Basic3DStarter
                 Exit();
 
             // TODO: Add your update logic here
+            // Update the triangle 
+            triangle.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -76,6 +89,11 @@ namespace Basic3DStarter
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            // Draw the triangle 
+            // triangle.Draw();
+
+            // Draw the quad
+            quad.Draw();
 
             base.Draw(gameTime);
         }
